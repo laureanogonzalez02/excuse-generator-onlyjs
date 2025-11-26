@@ -1,7 +1,7 @@
-let who = ["The dog", "My grandma", "The mailman", "My bird"];
-let action = ["ate", "peed", "crushed", "broke"];
-let what = ["my homework", "my phone", "the car"];
-let when = [
+const who = ["The dog", "My grandma", "The mailman", "My bird"];
+const action = ["ate", "peed", "crushed", "broke"];
+const what = ["my homework", "my phone", "the car"];
+const when = [
   "before the class",
   "when I was sleeping",
   "while I was exercising",
@@ -9,17 +9,18 @@ let when = [
   "while I was praying",
 ];
 
-function getRandomElement(arr) {
-  const randomIndex = Math.floor(Math.random() * arr.length);
-  return arr[randomIndex];
+function getRandomElement(array) {
+  const randomIndex = Math.floor(Math.random() * array.length);
+  return array[randomIndex];
 }
 
 function generateExcuse() {
-  const randomWho = getRandomElement(who),
-    randomAction = getRandomElement(action),
-    randomWhat = getRandomElement(what),
-    randomWhen = getRandomElement(when);
-  return [randomWho, randomAction, randomWhat, randomWhen].join(" ") + ".";
+  const sentenceParts  = [];
+  const partsArrays  = [who,action,what,when];
+  partsArrays.forEach(partList  => {
+          sentenceParts.push(getRandomElement(partList ));
+        });
+  return sentenceParts.join(" ") + ".";
 }
 
 console.log(generateExcuse());
